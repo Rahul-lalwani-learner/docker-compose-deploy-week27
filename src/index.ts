@@ -5,9 +5,10 @@ const app = express();
 const prismaClient = new PrismaClient(); 
 
 app.get("/", async (req, res)=>{
-    await prismaClient.user.findMany({})
+    const data = await prismaClient.user.findMany({})
     res.json({
-        "message": "get endpoint"
+        "message": "get endpoint", 
+        "data": data
     })
 })
 
